@@ -1,0 +1,523 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 9, 2014, 7:26:41 AM
+    Author     : Rotimi Ajayi-Dopemu
+*/
+
+/* Essential slider functionality (never changes) */
+	.plusslider { overflow: hidden; position: relative;}
+	.plusslider-container { position: relative;}
+	.plusslider .child { float: left; }
+	.plustype-fader .child { display: none; position: absolute; left: 0; top: 0; } /* only applies to fader type (not slider) */
+	.plustype-fader .current { z-index: 5; } /* only applies to fader type (not slider) */
+	.plusslider a img { border: none; } /* prevent blue borders in IE, which break "slider" type by altering the spacing */
+
+
+/* No-javascript fallback (change "#slider1" selectors below to suit your html) */
+	#slider1 > * { display: none; }
+	#slider1 > *:first-child { display: block; }
+
+
+/* Position the nav arrows & pagination controls */
+      
+        
+	#slider1-wrapper {
+		position: relative; /* so child elements (nav arrows and pagination controls) can be positioned absolutely against this */
+		display: inline-block; /* make wrapper div the size of its contents */
+		zoom: 1; *display: inline; /* make inline-block work in IE6/7 */
+                border-top: 4px solid white;
+                border-bottom: 4px solid white;
+	}
+	
+        #slider2-wrapper {
+                position: relative; /* so child elements (nav arrows and pagination controls) can be positioned absolutely against this */
+		display: inline-block; /* make wrapper div the size of its contents */
+		zoom: 1; *display: inline; /* make inline-block work in IE6/7 */
+                z-index: -80;
+                background-color: black;
+                color: white;
+            
+        }
+	.plusslider {
+		/* create space for nav arrows - add margins here for fade*/
+		margin: 0 0px 0px 0px;
+	}
+	
+	.plusslider-arrows .prev {
+		/* place "prev" arrow to the left of the slider */
+		position: absolute;
+		top: 40%;
+		left: 0;
+	}
+	
+	.plusslider-arrows .next {
+		/* place "next" arrow to the right of the slider */
+		position: absolute;
+		top: 40%;
+		right: 0;
+	}
+	
+	.plusslider-pagination-wrapper {
+		/* place pagination controls below the slider */
+		position: absolute;
+		bottom: 0;
+		left: 50%; /* center horizontally (works with child's "position:relative; left:-50%;") */
+	}
+	
+	.plusslider-pagination {
+		/* center horizontally (works with parent's "position:absolute; left:50%;" -- see http://stackoverflow.com/a/1777282/477513 ) */
+		position: relative;
+		left: -50%;
+	}
+
+/* Style the nav arrows & pagination controls */
+	.plusslider-arrows,
+	.plusslider-pagination {
+		/* reset default list styles */
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	.plusslider-arrows li {
+		text-indent: -9999px; /* hide the text */
+		cursor: pointer;
+	}
+	
+	.plusslider-arrows .prev {
+		background: url(image/empty.png) no-repeat 0 0;
+		width: 24px;
+		height: 43px;
+	}
+	
+	.plusslider-arrows .next {
+		background: url(image/empty.png) no-repeat 0 0;
+		width: 24px;
+		height: 43px;
+	}
+	
+	.plusslider-pagination li {
+		/* line these up in a row */
+		float: left;
+		margin-left: 5px;
+		
+		
+		/* make them look like little buttons */
+		text-indent: -9999px;
+		background: url(image/empty.png) no-repeat 0 0;
+		width: 24px;
+		height: 24px;
+		cursor: pointer;
+		
+		
+	}
+	.plusslider-pagination li.current {
+		background-position: 0 -26px;
+	}
+
+
+/* Slide width/height (required for non-image slides) */
+	.plusslider .child {
+		width: 1000px;
+		height: 665px;
+	}
+
+/* Slide contents (non-image slides) */
+	.slide {
+            position: relative;
+    
+		background: url(img/bg2.png);
+                background-color: #3a3a3a; //IE-9 fallback
+		padding: 0 0 0 0;
+		width: 1000px !important; /* override slide width to compensate for padding */
+		height: 665px !important; /* override slide height to compensate for padding */
+	}
+	.slide h3 { color: #fff; font-size: 16px; margin: 0 0 20px 0; text-align: center; }
+	
+        //IE-9 Fallback
+        .filter {
+            filter: none;
+        }
+        /* position other elements of the site */
+        
+    
+        body {
+            width: 100%;
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+            background-color: black;
+            font-family: "Ubuntu",sans-serif;
+        }
+        
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #999500;
+            text-decoration: underline;
+        }
+        
+        #full-site-wrapper {
+           position: relative;
+           top: 0px;
+           width: 1040px;
+           height: 764px;
+           margin: 0 auto;
+        }
+        
+        #header {
+            position: relative;
+            top: 26px;
+            height: 100px;
+            width: 1000px;
+            float: right;
+        }
+        
+        #footer {
+            height: 75px;
+            width: 1000px;
+        }
+        
+        #footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        #footer a:hover {
+            color: #999500;
+            text-decoration: underline;
+        }
+        h3.inner-nav {
+            position: relative;
+            padding-bottom: 11px;
+            z-index: 9;
+        }
+        
+        .nav h3 {
+            display: inline-block;
+            padding: 5px 15px 8px 15px;
+            margin: 0px 8px 0px 8px;
+            z-index: 5;
+            font-family: "Krona One";
+            font-style: normal;
+            font-weight: 400;
+        }
+        
+        .nav {
+            color: white;
+        }
+        
+        #overlay-box-right {
+            position: relative;
+            background-color: black;
+            top: -720px;
+            left: 900px;
+            z-index: 9;
+            height: 705px;
+            width: 110px;
+            background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.48) 29%, rgba(0,0,0,1) 60%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(29%,rgba(0,0,0,0.48)), color-stop(60%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.48) 29%,rgba(0,0,0,1) 60%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.48) 29%,rgba(0,0,0,1) 60%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.48) 29%,rgba(0,0,0,1) 60%); /* IE10+ */
+            background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.48) 29%,rgba(0,0,0,1) 60%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 ); /* IE6-9 */
+        }
+        
+        #overlay-box-left {
+            position: relative;
+            background-color: black;
+            top: 735px;
+            z-index: 10;
+            height: 665px;
+            width: 110px;
+            background: -moz-linear-gradient(left,  rgba(0,0,0,1) 40%, rgba(0,0,0,0.48) 71%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, right top, color-stop(40%,rgba(0,0,0,1)), color-stop(71%,rgba(0,0,0,0.48)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(left,  rgba(0,0,0,1) 40%,rgba(0,0,0,0.48) 71%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(left,  rgba(0,0,0,1) 40%,rgba(0,0,0,0.48) 71%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(left,  rgba(0,0,0,1) 40%,rgba(0,0,0,0.48) 71%,rgba(0,0,0,0) 100%); /* IE10+ */
+            background: linear-gradient(to right,  rgba(0,0,0,1) 40%,rgba(0,0,0,0.48) 71%,rgba(0,0,0,0) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+
+        }
+        
+        /* css for music page */
+        h1.title {
+            font-size: 16px;
+            line-height: 20px;
+        }
+        .top-box-header {
+            color: white;
+            font-family: "Krona One";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            width: 190px;
+            height: 50px;
+            margin: 15px 0 15px 0;
+            text-align: center;
+        }
+        .quotation {
+            font: 14px/18px "Ubuntu", sans-serif;
+            color: white;
+            border-left: 2px solid white;
+            padding-left: 6px;
+            margin: 5px 10px 0 10px;
+            width: 160px;
+        }
+        
+        .top-box {
+            position: relative;
+            top: 46px;
+            left: 34px;
+            width: 190px;
+            height: 186px;
+            padding: 26 15 15 10;
+            background-color: black;
+            border: 2px solid white;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        
+        
+        
+        #circles-left {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 9;
+        }
+        
+        .play-pause-box {
+            position: relative;
+            left: 400px;
+            top: 200px;
+            width: 76px;
+            height: 76px;
+        }
+        
+        .play-pause {
+            margin: auto 0;
+            border: 0px;
+        }
+        
+        .player {
+            position: absolute;
+            height: 200px;
+            width: 400px;
+            left: 400px;
+            top: 360px;
+            background-color: black;
+            color: white;
+            padding: 20px 15px 20px 15px;
+            overflow: auto;
+            border: 2px solid white;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        
+        #music-box {
+            position: relative;
+            width: 230px;
+            height: 275px;
+            left: 34px;
+            top: 100px;
+            background-color: black;
+            color: white;
+            padding: 20px 15px 20px 15px;
+            overflow: auto;
+            z-index: 50;
+            border: 2px solid white;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        
+        /* css for media page */
+        #circles-right {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            z-index: 9;
+        }
+
+        #head-up {
+            position: absolute;
+            margin: 0px;
+            border: 0px;
+            bottom: -10px;
+            left: 310px;
+        }
+        
+
+        
+        .inner-slide {
+            position: relative;
+            padding: 20px 15px 20px 15px;
+            text-align: justify;
+            width: 302px;
+            height: 245px;
+            font: 14px/22px Ubuntu, sans-serif;
+            background-color: black;
+            color: white;
+        }
+        
+        .interview-thumb {
+            position: absolute;
+            top: 60px;
+            left: 520px;
+            border: 0px;
+        }
+        
+        .tab-box {
+            position: absolute;
+            z-index: 50;
+            left: 71px;
+            top: 300px;
+            width: 332px;
+            height: 340px;
+        }
+        
+        .tabs {
+            position: relative;
+            cursor: pointer;
+            z-index: 150;
+            width: 108px;
+            height: 22px;
+            font: 14px "Krona One", serif;
+            color: white;
+            padding: 5px 0 0 0;
+            margin: 0 0 0 0;
+            text-align: center;
+            display: inline-block;
+            -webkit-border-top-left-radius: 5px;
+            -webkit-border-top-right-radius: 5px;
+            -moz-border-radius-topleft: 5px;
+            -moz-border-radius-topright: 5px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+/* css for events page */
+#past-events {
+    border: 1px solid white;
+}
+
+#past-events-header {
+    position: relative;
+    margin-top: 20px;
+    left: 229px;
+    height: 22px;
+    width: 85px;
+    padding: 4px 8px 4px 8px;
+    font-style: bold;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    z-index: 10;
+}
+        .events-info {
+            color: white;
+            background-image: url(img/event_bg.png);
+            width: 420px; 
+            height: 500px;
+            position: relative;
+            padding: 25px 20px 20px 25px;
+            z-index: 500;
+            left:60px;
+            top: 70px;
+            float: left;
+            text-align: left;
+            font-family: "Ubuntu",sans-serif;
+            font-size: 20px;
+        }
+        
+        .events-list {
+            color: white;
+            background-image: url(img/event_bg.png);
+            padding: 25px 20px 25px 20px;
+            width: 330px;
+            right: 60px;
+            height: 500px;
+            position: relative;
+            z-index: 500;
+            top: 70px;
+            float: right;
+            font-family: "Ubuntu",sans-serif;
+            font-size: 18px;
+        }
+        
+        .event-list-detail {
+            padding: 10px 6px 16px 6px;
+        }
+        
+        .event-list-info {
+            padding: 10px 6px 16px 6px;
+        }
+        
+        .events-nav {
+            cursor: pointer;
+        }
+        
+        .event-details-show {
+            display: block;
+        }
+        
+        .event-details-hide {
+            display: none;
+        }
+        
+/* css for social page */
+
+        #slide3-img {
+            position: absolute;
+            z-index: 1;
+            top: 95px;
+        }
+        .social {
+            position: relative;
+            margin: 0 auto;
+            border: 1px solid white;
+            z-index: 500;
+            width: 900px;
+            height: 540px;
+            top: 100px
+        }
+        
+        .tintup {
+            position: relative;
+            top: 70px;
+            left: 100px;
+            width: 900px;
+            height: 540px;
+            z-index: 8;
+        }
+        
+        .mobile-menu { display: none; }
+         @media screen and (max-width: 500px) {
+             #mobile-test { display: none; }
+             .class { display: none; }
+             .mobile-menu { display: block; }
+             .nav { display: none; }
+             body { width: 100%; }
+             #slider1-wrapper { width: 100%; display: block; }
+             #slider2-wrapper { width: 100%; display: block; }
+             #full-site-wrapper { width: 100%; display: block; }
+             #slider1 { width: 100%; display: block; }
+             .slide { width: 90%; }
+             #circles-right { display: none; }
+             .header img { margin: 0 auto; }
+             .top-box {
+                 width: 85%;
+             }
+             .top-box-header { position: relative; top: 0px; }
+             #footer { width: 100%; }
+             
+}

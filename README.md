@@ -6,4 +6,11 @@ The dashboard was implemented in CouchCMS which provided most of the functionali
 
 Currently, the site is not live but I would like to update the design to be responsive as it currently only focuses on desktop.
 
-Copyright 2012
+Copyright 2014
+
+Installation:
+1) Create New Database with MySQL
+2) Edit Couch/config.example.php with your database details and rename to config.php
+3) go to index.php and enter login information for CouchCMS Super Admin
+4) go to index.php one more time, couch will automatically create database tables and fields for the events
+5) go to the dashboard at root/couch/ and enter your first event to see it propogated to the front end

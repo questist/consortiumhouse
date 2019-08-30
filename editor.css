@@ -1,0 +1,21 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 5, 2014, 8:29:50 PM
+    Author     : User
+*/
+
+.events-info {
+            color: white;
+            background-image: url(img/event_bg.png);
+            width: 450px; 
+            height: 500px;
+            padding: 25px 20px 20px 25px;
+            float: left;
+            text-align: left;
+            font-family: "Ubuntu",sans-serif;
+            font-size: 20px;
+        }

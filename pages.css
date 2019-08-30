@@ -1,0 +1,254 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 9, 2014, 7:26:41 AM
+    Author     : Rotimi Ajayi-Dopemu
+*/
+
+/* Slide contents (non-image slides) */
+	
+	.slide h3 { color: #fff; font-size: 16px; margin: 0 0 20px 0; text-align: center; }
+	.slide p { font-size: 10px; color: #fff; padding: 0 0 0 0px; text-align: center }
+	
+	
+
+	.quotation p {
+            top: 100px;
+            z-index: 1000;
+           /* padding: 50px;  Unlike the .slide1 example, we do *not* need to override slide width/height (because this padding is on an inner element, not the slide itself) */
+	}
+        
+        
+/* position header and footer elements of the site common to all pages */
+
+#slider1-wrapper {
+		position: relative; /* so child elements (nav arrows and pagination controls) can be positioned absolutely against this */
+		display: inline-block; /* make wrapper div the size of its contents */
+		zoom: 1; *display: inline; /* make inline-block work in IE6/7 */
+                border-style: solid;
+                border-width: 8px 0px;
+                -moz-border-image: url(img/border2.png) 8 0 repeat;
+                -webkit-border-image: url(img/border2.png) 8 0 repeat;
+                -o-border-image: url(img/border2.png) 8 0 repeat;
+                border-image: url(img/border2.png) 8 0 repeat;      
+	}
+        
+        #full-site-wrapper {
+           position: relative;
+           top: 0px;
+           width: 1040px;
+           height: 764px;
+           margin: 0 auto;
+        }
+        #body-wrapper {
+           position: relative;
+           width: 1040px;
+           height: 764px;
+           margin: 0 auto;
+           border-style: solid;
+           background: url(img/bg2.png);
+                border-width: 8px 0px;
+                -moz-border-image: url(img/border2.png) 8 0 repeat;
+                -webkit-border-image: url(img/border2.png) 8 0 repeat;
+                -o-border-image: url(img/border2.png) 8 0 repeat;
+                border-image: url(img/border2.png) 8 0 repeat;
+        }
+        
+        #header {
+            position: relative;
+            top: 26px;
+            height: 100px;
+            width: 1040px;
+        }
+        
+        h3.inner-nav {
+            display: inline-block;
+            position: relative;
+            z-index: 9;
+        }
+        .nav {
+            margin: 20px 0px 0px 20px;
+
+        }
+        
+        .nav:link {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav:visited {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav:hover {
+           color: #999500; 
+           text-decoration: underline;
+        }
+        
+        
+        .slide {
+            position: relative;
+            z-index: -1;
+		
+		padding: 0 0 0 0;
+		width: 1000px !important; /* override slide width to compensate for padding */
+		height: 665px !important; /* override slide height to compensate for padding */
+	}
+        
+        body {
+            background-color: black;
+            font-family: "Krona One";
+            font-style: normal;
+            font-weight: 400;
+        }
+        
+        #footer {
+            height: 75px;
+            width: 1040px;
+      
+        }
+        
+/* work on gradient transitions */
+        #overlay-box-right {
+            position: relative;
+            background-color: black;
+            top: -720px;
+            left: 900px;
+            z-index: 9;
+            height: 705px;
+            width: 110px;
+            background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.48) 29%, rgba(0,0,0,1) 60%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(29%,rgba(0,0,0,0.48)), color-stop(60%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.48) 29%,rgba(0,0,0,1) 60%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.48) 29%,rgba(0,0,0,1) 60%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.48) 29%,rgba(0,0,0,1) 60%); /* IE10+ */
+            background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.48) 29%,rgba(0,0,0,1) 60%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 ); /* IE6-9 */
+        }
+        
+        #overlay-box-left {
+            position: relative;
+            background-color: black;
+            top: 735px;
+            z-index: 10;
+            height: 665px;
+            width: 110px;
+            background: -moz-linear-gradient(left,  rgba(0,0,0,1) 40%, rgba(0,0,0,0.48) 71%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, right top, color-stop(40%,rgba(0,0,0,1)), color-stop(71%,rgba(0,0,0,0.48)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(left,  rgba(0,0,0,1) 40%,rgba(0,0,0,0.48) 71%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(left,  rgba(0,0,0,1) 40%,rgba(0,0,0,0.48) 71%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(left,  rgba(0,0,0,1) 40%,rgba(0,0,0,0.48) 71%,rgba(0,0,0,0) 100%); /* IE10+ */
+            background: linear-gradient(to right,  rgba(0,0,0,1) 40%,rgba(0,0,0,0.48) 71%,rgba(0,0,0,0) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+
+        }
+        
+/* home page css */
+
+        #circles-left {
+            position: relative;
+            alignment-adjust: 0px;
+            top: 0px;
+            float: left;
+            z-index: 9;
+        }
+        
+        #circles-right {
+            position: relative;
+            alignment-adjust: 0px;
+            top: 0px;
+            float: right;
+            z-index: 9;
+        }
+        
+        .quotation {
+                position: relative;
+                z-index: -10;
+		background: #333;
+		font: 24px Georgia, serif;
+		color: #f1f1f1;
+		text-align: center;
+	}
+        
+        .inner-slide {
+            position: relative;
+            top: 170px;
+            left: 34px;
+            width: 250px;
+            height: 200px;
+            font-size: 11px;
+            padding: 20 25 25 20;
+            background-color: black;
+            color: white;
+            z-index: 50;
+            text-align: center;
+        }
+        
+        .top-box {
+            position: relative;
+            top: 46px;
+            left: 34px;
+            width: 190px;
+            height: 160px;
+            padding: 26 15 15 10;
+            background-color: black;
+            border: 2px solid white;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+        }
+        
+        .tabs {
+            cursor: pointer;
+            z-index: 150;
+            position: relative;
+            width: 70px;
+            height: 22px;
+            font-size: 10px;
+            color: white;
+            left: 70px;
+            top: 170px;
+            padding: 5 0 0 2;
+            margin: 0 0 0 0;
+            text-align: center;
+            display: inline-block;
+            -webkit-border-top-left-radius: 5px;
+            -webkit-border-top-right-radius: 5px;
+            -moz-border-radius-topleft: 5px;
+            -moz-border-radius-topright: 5px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        
+/*  music page css  */
+        #head-up {
+            position: relative;
+            top: -125px;
+            left: 310px;
+        }
+        
+        
+        #contact-box {
+            position: relative;
+            width: 230px;
+            height: 275px;
+            left: -220px;
+            top: 250px;
+            background-color: black;
+            color: white;
+            padding: 20 15 20 15;
+            overflow: auto;
+            z-index: 50;
+        }
+        
+        #circles-right {
+            position: relative;
+            alignment-adjust: 0px;
+            top: 0px;
+            float: right;
+            z-index: 9;
+        }
